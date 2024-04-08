@@ -1,0 +1,143 @@
+/* WEBSITE */
+html {
+  font-family: "Arial", Times, serif;
+  font-size: 12;
+  background-color: rgba(173, 216, 230, 0.753);
+}
+
+.center{
+  margin: auto;
+}
+
+
+
+/* LOGIN FORM */
+form {
+    /* border: 3px solid #f1f1f1; */
+    /* background-color: rgba(128, 128, 0, 0.555); */
+    /* width: 90%; */
+    /* box-shadow: 0 3px 10px rgb(0 0 0 / 0.2); */
+    /* padding: 1%; */
+  }
+  
+  input[type=text], input[type=password] {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+  }
+  
+  button {
+    background-color: yellow;
+    color: black;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+  }
+  
+  button:hover {
+    opacity: 0.8;
+  }
+  
+  .cancel-btn {
+    width: auto;
+    padding: 10px 18px;
+    background-color: #f44336;
+  }
+  
+  .container {
+    padding: 16px;
+    border: 3px solid #f1f1f1;
+    background-color: rgba(128, 128, 0, 0.555);
+    width: 30%;
+    box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
+    padding: 1%;
+  }
+  
+  @media screen and (max-width: 300px) {
+
+    .cancel-btn {
+      width: 100%;
+    }
+  }
+
+
+
+/* NAVBAR */
+.top-nav {
+  background-color: #333;
+  overflow: hidden;
+  box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
+}
+
+.top-nav a {
+  float: left;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+.top-nav a:hover {
+  background-color: yellow;
+  color: black;
+}
+
+#login-nav {
+  float: right;
+}
+
+/* .top-nav a.active {
+  background-color: rgba(255, 255, 0, 0.774);
+  color: white;
+} */
+
+
+/* CONTACT */
+input[type=text], select, textarea {
+  width: 100%; /* Full width */
+  padding: 12px; /* Some padding */ 
+  border: 1px solid #ccc; /* Gray border */
+  border-radius: 4px; /* Rounded borders */
+  box-sizing: border-box; /* Make sure that padding and width stays in place */
+  margin-top: 6px; /* Add a top margin */
+  margin-bottom: 16px; /* Bottom margin */
+  resize: vertical /* Allow the user to vertically resize the textarea (not horizontally) */
+}
+
+input[type=submit] {
+  background-color: yellow;
+  color: black;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+input[type=submit]:hover {
+  background-color: rgb(175, 175, 1);
+}
+
+.container {
+  border-radius: 5px;
+  padding: 20px;
+}
+
+#contact-boxes {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+/* FOOTER */
+.footer {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  background-color: rgba(128, 128, 0, 0.555);
+}
