@@ -25,13 +25,21 @@ class Db
     public function select($table, $cols) {
         $sql = "SELECT $cols FROM $table";
         $result = $this->mysqli->query($sql);
-        return $result;
+        $array = $result -> fetch_all(MYSQLI_ASSOC);
+        return $array;
     }
 
-    public function selectWhere($table, $cols, $where, $cond) {
-        $sql = "SELECT $cols FROM $table WHERE $where = '$cond'";
+    public function selectWhere($table, $cols, $where, $cond, $value) {
+        $sql = "SELECT $cols FROM $table WHERE $where $cond '$value'";
         $result = $this->mysqli->query($sql);
-        return $result;
+        $array = $result -> fetch_all(MYSQLI_ASSOC);
+        return $array;    
     }
 
+    public function selectNULL($table, $cols, $where) {
+        $sql = "SELECT $cols FROM $table WHERE $where IS NULL";
+        $result = $this->mysqli->query($sql);
+        $array = $result -> fetch_all(MYSQLI_ASSOC);
+        return $array;    
+    }
 }

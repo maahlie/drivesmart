@@ -1,6 +1,9 @@
 <?php
-require "controller/StudentController.php";
+session_start();
+require_once "controller/StudentController.php";
+require_once "controller/LessonController.php";
 $studentController = new StudentController();
+$lessonController = new LessonController();
 
 $request = $_SERVER['REQUEST_URI'];
 $viewDir = '/view/';
@@ -26,15 +29,75 @@ switch ($request) {
         break;
 
     case $localDir . 'dashboard':
-        require __DIR__ . $viewDir . 'dashboard.php';
+        if ($_SESSION["loggedIn"] == true){
+            if(isset($_SESSION['studentId'])) $blocks = $lessonController->read($_SESSION['studentId']);
+            require __DIR__ . $viewDir . 'dashboard.php';
+        }else{
+            header('Location: login');
+        }
+        break;
+
+    case $localDir . 'planLesson':
+        if ($_SESSION["loggedIn"] == true){
+            $blocks = $lessonController->read();
+            require __DIR__ . $viewDir . 'planLesson.php';
+        }else{
+            header('Location: login');
+        }
+        break;
+    
+    case $localDir . 'saveLesson':
+        if ($_SESSION["loggedIn"] == true){
+            $lessonController->create($_SESSION['studentId'], $_POST['lesson']);
+            header('Location: planLesson');
+        }else{
+            header('Location: login');
+        }
+        break;
+
+    case $localDir . 'cancelLesson':
+        if ($_SESSION["loggedIn"] == true){
+            $lessonController->cancel($_POST['id']);
+            header('Location: dashboard');
+        }else{
+            header('Location: login');
+        }
+        break;
+
+    case $localDir . 'myProfile':
+        if ($_SESSION["loggedIn"] == true){
+            require __DIR__ . $viewDir . 'profile.php';
+        }else{
+            header('Location: login');
+        }
         break;
 
     case $localDir . 'saveStudent':
-        if(isset($_POST['submit_acc'])){
-            $studentController->create($_POST['name'], $_POST['address'], $_POST['postalcode'], $_POST['city'], $_POST['tel_nr'], $_POST['email'], $_POST['psw']);
+        if(isset($_POST['submitAcc'])){
+            $emailExists = $studentController->create($_POST['name'], $_POST['address'], $_POST['postalcode'], $_POST['city'], $_POST['telNr'], $_POST['email'], $_POST['psw']);
+
+            if($emailExists == true){
+                echo "E-mail is al in gebruik.";
+            } else {
+                header('Location: dashboard');
+            }
         }
 
         require __DIR__ . $viewDir . 'createStudent.php';
+        break;
+
+    case $localDir . 'changeStudent':
+        if(isset($_POST['submitChange'])){
+            $emailExists = $studentController->update($_POST['name'], $_POST['address'], $_POST['postalcode'], $_POST['city'], $_POST['telNr'], $_POST['email'], $_SESSION['studentId']);
+            require __DIR__ . $viewDir . 'profile.php';
+            
+            // if($emailExists == true){
+            //     echo "E-mail is al in gebruik.";
+            // } else {
+            //     header('Location: dashboard');
+            // }
+        }
+
         break;
 
     case $localDir . 'loginCheck':
@@ -44,13 +107,16 @@ switch ($request) {
         }
 
         if($login == true) {
-            $_SESSION["loggedIn"] = true;
-            echo "yah";
-            require __DIR__ . $viewDir . 'dashboard.php';
+            header('Location: dashboard');
         } else {
             echo "nah";
             require __DIR__ . $viewDir . 'login.php';
         }
+        break;
+    
+    case $localDir . 'logout':
+        session_destroy();
+        header('Location: /drivesmart');
         break;
 
     default:

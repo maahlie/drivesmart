@@ -12,14 +12,6 @@ html {
 
 
 /* LOGIN FORM */
-form {
-    /* border: 3px solid #f1f1f1; */
-    /* background-color: rgba(128, 128, 0, 0.555); */
-    /* width: 90%; */
-    /* box-shadow: 0 3px 10px rgb(0 0 0 / 0.2); */
-    /* padding: 1%; */
-  }
-  
   input[type=text], input[type=password] {
     width: 100%;
     padding: 12px 20px;
@@ -91,11 +83,6 @@ form {
   float: right;
 }
 
-/* .top-nav a.active {
-  background-color: rgba(255, 255, 0, 0.774);
-  color: white;
-} */
-
 
 /* CONTACT */
 input[type=text], select, textarea {
@@ -133,6 +120,7 @@ input[type=submit]:hover {
   justify-content: space-around;
 }
 
+
 /* FOOTER */
 .footer {
   position: fixed;
@@ -140,4 +128,20 @@ input[type=submit]:hover {
   bottom: 0;
   width: 100%;
   background-color: rgba(128, 128, 0, 0.555);
+}
+
+
+/* LES PLANNEN */
+#block-list {
+  display: flex;
+  flex-direction: column;
+  overflow: auto;
+  height: 500px;
+}
+
+.block {
+  background-color: rgba(175, 175, 1, 0.726);
+  margin-bottom: 3%;
+  padding: 1%;
+  border: white 1px solid;
 }

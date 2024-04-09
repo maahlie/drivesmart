@@ -23,8 +23,8 @@ include("template/header.php")
     <label for="postalcode"><b>Postcode:</b></label>
     <input type="text" placeholder="Postcode" name="postalcode" required>
 
-    <label for="tel_nr"><b>Telefoon nr:</b></label>
-    <input type="text" placeholder="06 4691053" name="tel_nr" required>
+    <label for="telNr"><b>Telefoon nr:</b></label>
+    <input type="text" placeholder="06 4691053" name="telNr" required>
 
     <label for="psw"><b>Wachtwoord:</b></label>
     <input type="password" placeholder="Enter Password" name="psw" required>
@@ -35,7 +35,7 @@ include("template/header.php")
 
     <div class="clearfix">
         <br><br>
-        <button type="submit" name="submit_acc" class="signupbtn">Registreer</button>
+        <button type="submit" name="submitAcc" class="signupbtn">Registreer</button>
         <br><br>
         <a type="button" class="cancel-btn" href="login">Cancel</a>
     </div>

@@ -8,9 +8,6 @@ include("template/header.php")
     <p>AL wil je ribba dit is sws de plek</p>
   </div>
 
-</form>
-
-
 <?php
 include("template/footer.php");
 ?>
