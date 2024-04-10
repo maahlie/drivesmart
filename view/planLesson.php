@@ -13,7 +13,7 @@ include("template/header.php")
     <hr>
     <br>
     
-    <div id="block-list">
+    <div class="block-list">
         <?php echo $blocks ?>
     </div>
     <img onerror="filterLessons(this);" src="" style="display:none">

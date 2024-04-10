@@ -16,16 +16,14 @@ class StudentModel {
         $stmt->bind_param("sssssss", $name, $address, $postalcode, $city, $telephoneNr, $email, $password);
         $stmt->execute();
         
-
+        //check if email is new
         if($this->db->mysqli->affected_rows === 1) {
-            // email was new, here you should send the email
             $emailExists = false;
-            return $emailExists;
         }
         else {
             $emailExists = true;
-            return $emailExists;
         }
+        return $emailExists;
     }
     
     public function getPass($email) {
@@ -48,10 +46,9 @@ class StudentModel {
 
     public function update($name, $address, $postalcode, $city, $telephoneNr, $email, $id) {
 
-
         $emailDb = $this->getEmail($id);
 
-        if($emailDb[0]['email'] === $email){
+        if($emailDb[0]['email'] == $email){
             $sql = "UPDATE student SET name = ?, address = ?, postalcode = ?, city = ?, telephone_nr = ? WHERE id = ?";
             $stmt = $this->db->mysqli->prepare($sql);
             $stmt->bind_param("sssssi", $name, $address, $postalcode, $city, $telephoneNr, $id);
@@ -63,16 +60,20 @@ class StudentModel {
 
         $stmt->execute();
 
-
-        if($this->db->mysqli->affected_rows === 1) {
-            // email was new, here you should send the email
+        //check if email is new
+        if($this->db->mysqli->affected_rows == 1) {
             $emailExists = false;
-            return $emailExists;
+            $_SESSION["name"] = $name;
+            $_SESSION["address"] = $address;
+            $_SESSION["postalcode"] = $postalcode;
+            $_SESSION["city"] = $city;
+            $_SESSION["telNr"] = $telephoneNr;
+            $_SESSION["email"] = $email;
         }
         else {
             $emailExists = true;
-            return $emailExists;
         }
+        return $emailExists;
     }
 
     public function delete() {

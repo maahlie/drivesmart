@@ -10,7 +10,6 @@ html {
 }
 
 
-
 /* LOGIN FORM */
   input[type=text], input[type=password] {
     width: 100%;
@@ -121,18 +120,8 @@ input[type=submit]:hover {
 }
 
 
-/* FOOTER */
-.footer {
-  position: fixed;
-  left: 0;
-  bottom: 0;
-  width: 100%;
-  background-color: rgba(128, 128, 0, 0.555);
-}
-
-
 /* LES PLANNEN */
-#block-list {
+.block-list {
   display: flex;
   flex-direction: column;
   overflow: auto;
@@ -144,4 +133,25 @@ input[type=submit]:hover {
   margin-bottom: 3%;
   padding: 1%;
   border: white 1px solid;
+}
+
+/* DASHBOARD */
+#dash-lists {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+/* ERROR MSG */
+.error {
+  color: red;
+}
+
+/* FOOTER */
+.footer {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  background-color: rgba(128, 128, 0, 0.555);
 }

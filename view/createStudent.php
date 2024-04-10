@@ -29,9 +29,10 @@ include("template/header.php")
     <label for="psw"><b>Wachtwoord:</b></label>
     <input type="password" placeholder="Enter Password" name="psw" required>
 
-    <label for="psw_repeat"><b>Herhaal wachtwoord:</b></label>
-    <input type="password" placeholder="Herhaal wachtwoord" name="psw_repeat" required>
+    <label for="pswRepeat"><b>Herhaal wachtwoord:</b></label>
+    <input type="password" placeholder="Herhaal wachtwoord" name="pswRepeat" required>
 
+    <?php echo "<span class='error'>" . $error . "</span>"?> <!-- error shown when an error is passed from a function -->
 
     <div class="clearfix">
         <br><br>

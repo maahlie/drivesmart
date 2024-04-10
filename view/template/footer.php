@@ -3,6 +3,5 @@
 </footer>
 </body>
 
-<script src="view\js\validation.js"></script>
 
 </html>
