@@ -117,7 +117,7 @@ CREATE TABLE IF NOT EXISTS `student` (
   `address` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
   `postalcode` varchar(6) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
   `city` varchar(30) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
-  `telephone_nr` varchar(20) NOT NULL,
+  `phone` varchar(20) NOT NULL,
   `email` varchar(100) NOT NULL,
   `password` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
   `archived` tinyint(1) NOT NULL DEFAULT '0',
@@ -129,7 +129,7 @@ CREATE TABLE IF NOT EXISTS `student` (
 -- Dumping data for table `student`
 --
 
-INSERT INTO `student` (`id`, `name`, `address`, `postalcode`, `city`, `telephone_nr`, `email`, `password`, `archived`) VALUES
+INSERT INTO `student` (`id`, `name`, `address`, `postalcode`, `city`, `phone`, `email`, `password`, `archived`) VALUES
 (1, 'Thomas Maly', 'Pastoor Drehmannsstraat', '6049AT', 'Roermond, Herten', '06 30108668', 'thomasmaly69@gmail.com', '701f33b8d1366cde9cb3822256a62c01', 0),
 (2, 'Jopie Teunen', 'Straatnaam 8', '9090PO', 'Heerlen', '06 30108668', 'jopie@hotmail.com', '701f33b8d1366cde9cb3822256a62c01', 0);
 

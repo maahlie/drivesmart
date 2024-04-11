@@ -11,7 +11,7 @@ class StudentModel {
     }
 
     public function create($name, $address, $postalcode, $city, $telephoneNr, $email, $password) {
-        $sql = "INSERT IGNORE INTO student (name, address, postalcode, city, telephone_nr, email, password) VALUES (?, ?, ?, ?, ?, ?, ?)";
+        $sql = "INSERT IGNORE INTO student (name, address, postalcode, city, phone, email, password) VALUES (?, ?, ?, ?, ?, ?, ?)";
         $stmt = $this->db->mysqli->prepare($sql);
         $stmt->bind_param("sssssss", $name, $address, $postalcode, $city, $telephoneNr, $email, $password);
         $stmt->execute();
@@ -39,7 +39,7 @@ class StudentModel {
     }
 
     public function getProfile($email) {
-        $result =  $this->db->selectWhere("student", "id, name, address, postalcode, city, telephone_nr", "email", " = ", $email);
+        $result =  $this->db->selectWhere("student", "id, name, address, postalcode, city, phone", "email", " = ", $email);
         
         return $result;
     }
@@ -49,11 +49,11 @@ class StudentModel {
         $emailDb = $this->getEmail($id);
 
         if($emailDb[0]['email'] == $email){
-            $sql = "UPDATE student SET name = ?, address = ?, postalcode = ?, city = ?, telephone_nr = ? WHERE id = ?";
+            $sql = "UPDATE student SET name = ?, address = ?, postalcode = ?, city = ?, phone = ? WHERE id = ?";
             $stmt = $this->db->mysqli->prepare($sql);
             $stmt->bind_param("sssssi", $name, $address, $postalcode, $city, $telephoneNr, $id);
         } else {
-            $sql = "UPDATE IGNORE student SET name = ?, address = ?, postalcode = ?, city = ?, telephone_nr = ?, email = ? WHERE id = ?";
+            $sql = "UPDATE IGNORE student SET name = ?, address = ?, postalcode = ?, city = ?, phone = ?, email = ? WHERE id = ?";
             $stmt = $this->db->mysqli->prepare($sql);
             $stmt->bind_param("ssssssi", $name, $address, $postalcode, $city, $telephoneNr, $email, $id);
         }

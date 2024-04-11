@@ -52,7 +52,7 @@ class StudentController {
             $_SESSION["address"] = $profile[0]['address'];
             $_SESSION["postalcode"] = $profile[0]['postalcode'];
             $_SESSION["city"] = $profile[0]['city'];
-            $_SESSION["telNr"] = $profile[0]['telephone_nr'];
+            $_SESSION["telNr"] = $profile[0]['phone'];
             $_SESSION["email"] = $email;
 
             return true;

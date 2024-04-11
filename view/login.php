@@ -1,6 +1,7 @@
 <?php
 include("template/header.php")
 ?>
+
 <br><br>
 <form method="POST" action="loginCheck">
 

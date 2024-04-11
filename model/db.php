@@ -6,7 +6,7 @@ class Db
     private $dbHost     = "localhost";
     private $dbUser     = "root";
     private $dbPassword = "";
-    private $dbName     = "drivesmart";
+    private $dbName     = "drivesmartJaap";
 
     public $mysqli = '';
 

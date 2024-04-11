@@ -81,9 +81,9 @@ class LessonController {
 
         $date = strtotime($dateCat);
 
-        if($this->timeCheck($date)){
+        if($this->timeCheck($date) == false){
             $this->model->delete($id);
-            return true;  
+            return true;
         } else {
             return false;
         }
@@ -96,7 +96,7 @@ class LessonController {
 
         $date = strtotime($dateCat);
 
-        if($this->timeCheck($date)){
+        if($this->timeCheck($date) == false){
             $this->model->moveLesson($newLessonId, $lessonId);
             return true;  
         } else {
